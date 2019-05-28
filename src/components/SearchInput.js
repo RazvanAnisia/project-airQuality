@@ -1,5 +1,6 @@
 import React , { Component } from 'react';
 import InformationCard from './InformationCard';
+import { generateID } from '../utilis/helper'
 
 class SearchInput extends Component {
     constructor(props){
@@ -9,6 +10,7 @@ class SearchInput extends Component {
             apiData:[],
             suggestions:[],
             selectedCities:[],
+            noResults:false
 
         }
     }
@@ -24,19 +26,22 @@ class SearchInput extends Component {
       if(inputValue === '' || inputValue === ' ') {
           suggestions = []
       }
-
-      this.setState({suggestions:suggestions, inputValue:inputValue})
+      suggestions.length === 0 && inputValue !==''
+      ? this.setState({suggestions:suggestions, inputValue:inputValue , noResults:true})
+      : this.setState({suggestions:suggestions, inputValue:inputValue , noResults:false})
        e.preventDefault();
     }
 
     handleSelect = (e) => {
-        const city = e.target.innerHTML;
+        const city = e.target.innerHTML.trim();
         //what if it is made of multiple words?
+
         //What if we have no results, nothing matching?
 
         const cityInfo = {
             airQualityInfo:null,
             lastUpdated:null,
+            id:generateID()
         }
 
         //get Air Quality Data and Last Updated info
@@ -57,18 +62,25 @@ class SearchInput extends Component {
         )
     }
 
+    handleBlur = () =>{
+        console.log('blur')
+        this.setState({suggestions:[]})
+    }
     removeCard = (id) => {
-        const newState =  this.state.selectedCities.filter((city) => city.airQualityInfo.city !== id )
+        const newState =  this.state.selectedCities.filter((city) => city.id !== id )
         this.setState({
             selectedCities:newState
         })
     }
-
+    // onBlur={this.handleBlur}
+    // onFocus={this.handleChange}
 
     render(){
         return(
             <div className='input-container'>
-            <form  className='input-form' onChange={this.handleChange}>
+            <form  className='input-form'
+             onChange={this.handleChange}
+            >
                 <input type='text' value={this.state.inputValue} placeholder="Enter name of city"/>
             </form>
                 <ul className="suggestions-container">
@@ -81,12 +93,15 @@ class SearchInput extends Component {
                         ))
                     }
                 </ul>
+                {this.state.noResults
+                ? 'Sorry, we do not have any results for your query'
+                : null }
                 <div class='cards-container'>
                     { this.state.selectedCities.length > 0
-                    ? this.state.selectedCities.map((city,index) =>
+                    ? this.state.selectedCities.map((city) =>
                     (<InformationCard
-                        key={index}
-                        removeCard={()=>this.removeCard(city.airQualityInfo.city)}
+                        key={city.id}
+                        removeCard={()=>this.removeCard(city.id)}
                         lastUpdated={city.lastUpdated}
                         airQualityInfo={city.airQualityInfo}/>)
                     )

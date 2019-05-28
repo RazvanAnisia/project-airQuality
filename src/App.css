@@ -51,9 +51,7 @@ body{
   width:300px;
 }
 
-.parameters {
 
-}
 .city {
   color:#7A36B1;
   font-weight:600;
@@ -83,6 +81,7 @@ body{
   top: 12px;
   width: 22px;
   height: 22px;
+  cursor: pointer;
 }
 
 .close:before, .close:after {
