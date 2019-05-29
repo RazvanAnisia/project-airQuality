@@ -1,28 +1,31 @@
-.App {
-  text-align: center;
 
-}
 body{
   background:linear-gradient(to right, #7A36B1,#3B7EAE) no-repeat;
   min-height:100vh;
   height:auto;
   color:white;
-  font-family:'Open Sans', 'sans-serif'
+  font-family:'Open Sans', 'sans-serif';
+  text-align: center;
 }
+.title {
+  letter-spacing: 1.2px;
+  font-weight: 600;
+  margin-top:60px;
+}
+.headline {
+  letter-spacing: 0.3px;
+  font-weight: 400;
+  opacity: 0.9;
+  font-size: 19px;
+  line-height:2;
+}
+
+/*Suggestion Component*/
 .suggestions-container {
   max-height:150px;
   overflow-Y:scroll;
   margin:0 auto;
   border-radius:10px;
-}
-.suggestions-container::after{
-  content:'';
-  height:200px;
-  width:100px;
-  background:red;
-}
-.suggestions-container li {
-  list-style-type: none;
 }
 .suggestion-element{
   padding:5px 0;
@@ -30,22 +33,12 @@ body{
   text-align:left;
   box-sizing: border-box;
   padding-left:15px;
-
+  list-style-type: none;
+  margin-left:-40px;
 }
 .suggestion-element:hover{
   background:#eee;
   cursor: pointer;
-}
-.card {
-  background:white;
-  color:black;
-  width:270px;
-  border-radius:10px;
-  box-shadow: 0.2px 0.2px 0.6px  rgb(26, 25, 25);
-  padding:20px;
-  text-align: left;
-  position: relative;
-  margin:20px 10px;
 }
 .suggestions-container {
   color:black;
@@ -54,9 +47,9 @@ body{
   padding-top:25px;
   margin-top:-25px;
 }
-.suggestions-container li {
-  margin-left:-40px;
-}
+
+
+
 .input-container {
   max-width:750px;
   margin:40px auto 0;
@@ -68,11 +61,10 @@ body{
   width:270px;
   border-radius:10px;
   border:1.5px solid rgb(209, 208, 208);
-  padding:10px 10px 8px 40px;
+  padding:9px 10px 8px 40px;
   font-family:'Open Sans', 'sans-serif';
   font-size:14px;
 }
-
 .search-input:focus {
   border:1px solid white;
 }
@@ -80,43 +72,8 @@ body{
   color:black;
   font-family:'Open Sans', 'sans-serif'
 }
-
-.search-input:focus::-webkit-input-placeholder {color:transparent;}
-
-.title {
-  letter-spacing: 1.2px;
-  font-weight: 600;
-  margin-top:60px;
-}
-
-.city {
-  color:#7A36B1;
-  font-weight:600;
-  font-size:20px;
-}
-.headline {
-  letter-spacing: 0.3px;
-  font-weight: 400;
-  opacity: 0.9;
-  font-size: 19px;
-  line-height:2;
-}
-
-.cards-container {
-  display:flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  font-size:0.8rem;
-  margin-top:50px;
-
-}
-.updated-time {
-  text-transform: uppercase;
-  font-weight: 600;
-  font-size:12px;
-}
-.cards-container p {
-  margin:5px 0;
+.search-input:focus::-webkit-input-placeholder {
+  color:transparent;
 }
 .input-form {
   position: relative;
@@ -128,6 +85,40 @@ body{
   left:12px;
   top:12px;
 
+}
+
+
+/*Information Card*/
+.card {
+  background:white;
+  color:black;
+  width:275px;
+  border-radius:10px;
+  box-shadow: 0.2px 0.2px 0.6px  rgb(26, 25, 25);
+  padding:20px;
+  text-align: left;
+  position: relative;
+  margin:20px 20px;
+}
+.city {
+  color:#7A36B1;
+  font-weight:600;
+  font-size:20px;
+}
+.cards-container {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size:0.8rem;
+  margin-top:50px;
+}
+.updated-time {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size:12px;
+}
+.cards-container p {
+  margin:5px 0;
 }
 .values-text {
   margin-right:5px;
@@ -158,30 +149,32 @@ body{
   transform: rotate(-45deg);
 }
 
+/*ScrollBar styles*/
+#style-1::-webkit-scrollbar {
+  position: relative;
+  width: 35px;
+  height: 18px;
 
-
-#style-1::-webkit-scrollbar-track
-{
-	border-radius: 10px;
-  background-color: white;
+}
+#style-1::-webkit-scrollbar-thumb {
+  height: 6px;
+  border: 14.5px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  -webkit-border-radius: 30px;
+  background-color: rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: inset -1px -1px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 0px rgba(0, 0, 0, 0.05);
+}
+#style-1::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+  display: none;
+}
+#style-1::-webkit-scrollbar-corner {
+  background-color: transparent;
 }
 
-#style-1::-webkit-scrollbar
-{
-  width: 6px;
-	background-color: #F5F5F5;
-}
 
-#style-1::-webkit-scrollbar-thumb
-{
-  border-radius: 10px;
-  background-color: rgb(196, 193, 193);
-}
-
-.error-msg {
-  margin-top:20px;
-}
-/*Media screens*/
+/*Media queries*/
 
 @media only screen and (max-width: 745px) {
   .cards-container {

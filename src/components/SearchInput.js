@@ -9,12 +9,13 @@ class SearchInput extends Component {
         this.state={
             inputValue:'',
             apiData:[],
+            showSuggestions:false,
             suggestions:[],
             selectedCities:[],
             noResults:false
-
         }
     }
+
     componentDidMount() {
         fetch('https://api.openaq.org/v1/cities?country=GB&limit=200')
         .then(response => response.json())
@@ -23,19 +24,19 @@ class SearchInput extends Component {
 
     handleChange = (e) => {
       const inputValue = e.target.value.toLowerCase();
+      const capitalizedInput = e.target.value
       let suggestions = this.state.apiData.filter((cityData) => cityData.city.toLowerCase().startsWith(inputValue) )
       if(inputValue === '' || inputValue === ' ') {
           suggestions = []
       }
       suggestions.length === 0 && inputValue !==''
-      ? this.setState({suggestions:suggestions, inputValue:inputValue , noResults:true})
-      : this.setState({suggestions:suggestions, inputValue:inputValue , noResults:false})
-       e.preventDefault();
+        ? this.setState({suggestions:suggestions, inputValue:capitalizedInput , noResults:true })
+        : this.setState({suggestions:suggestions, inputValue:capitalizedInput , noResults:false, showSuggestions:true})
+      e.preventDefault();
     }
 
     handleSelect = (e) => {
         const city = e.target.innerHTML.trim();
-        //what if it is made of multiple words?
         const cityInfo = {
             airQualityInfo:null,
             lastUpdated:null,
@@ -54,45 +55,47 @@ class SearchInput extends Component {
                 //set the state
                 this.setState((state) => ({
                     selectedCities: [...state.selectedCities, cityInfo],
-                    inputValue: city
+                    inputValue: city,
+                    showSuggestions:false
             })))
 
         )
     }
-
-    handleBlur = (e) =>{
-        this.setState({suggestions:[]})
-    }
-    removeCard = (id) => {
+   removeCard = (id) => {
         const newState =  this.state.selectedCities.filter((city) => city.id !== id )
         this.setState({
             selectedCities:newState
         })
     }
-    // onBlur={this.handleBlur}
-    // onFocus={this.handleChange}
 
     render(){
         return(
             <div className='input-container'>
             <form  className='input-form'
-             onChange={this.handleChange}>
-                 <img className='search-icon' src={searchIcon} alt='search icon'/>
-                <input type='text' className='search-input' value={this.state.inputValue} placeholder="Enter city name..."/>
+              onChange={this.handleChange}>
+                <img className='search-icon' src={searchIcon} alt='search icon'/>
+                <input type='text'
+                className='search-input'
+                value={this.state.inputValue}
+                placeholder="Enter city name..."/>
             </form>
                 <ul className="suggestions-container" id='style-1'>
-                    { this.state.suggestions.map((suggestion, index) => (
+                    { this.state.showSuggestions
+                    ? this.state.suggestions.map((suggestion, index) => (
                         <li className="suggestion-element"
                             onClick={this.handleSelect}
                             key={index}>
                             {suggestion.city}
                         </li>
                         ))
+                    : null
                     }
                 </ul>
+
                 {this.state.noResults
                 ? <p className='error-msg'>Sorry, we do not have any results for your query</p>
                 : null }
+
                 <div class='cards-container'>
                     { this.state.selectedCities.length > 0
                     ? this.state.selectedCities.map((city) =>

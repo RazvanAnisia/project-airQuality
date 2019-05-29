@@ -4,10 +4,12 @@ import SearchInput from './components/SearchInput'
 
 function App() {
   return (
-    <div className="App">
+    <div >
       <h1 className='title'>Compare your Air</h1>
-      <p className='headline'>Compare the air quality between cities in the UK.<br/>
-        Select cities to compare using the search tool below.</p>
+      <p className='headline'>
+         Compare the air quality between cities in the UK.<br/>
+         Select cities to compare using the search tool below.
+      </p>
       <SearchInput/>
     </div>
   );
