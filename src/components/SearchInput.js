@@ -1,6 +1,7 @@
 import React , { Component } from 'react';
 import InformationCard from './InformationCard';
 import { generateID } from '../utilis/helper'
+import searchIcon from '../assets/search-solid.svg'
 
 class SearchInput extends Component {
     constructor(props){
@@ -35,9 +36,6 @@ class SearchInput extends Component {
     handleSelect = (e) => {
         const city = e.target.innerHTML.trim();
         //what if it is made of multiple words?
-
-        //What if we have no results, nothing matching?
-
         const cityInfo = {
             airQualityInfo:null,
             lastUpdated:null,
@@ -62,8 +60,7 @@ class SearchInput extends Component {
         )
     }
 
-    handleBlur = () =>{
-        console.log('blur')
+    handleBlur = (e) =>{
         this.setState({suggestions:[]})
     }
     removeCard = (id) => {
@@ -79,11 +76,11 @@ class SearchInput extends Component {
         return(
             <div className='input-container'>
             <form  className='input-form'
-             onChange={this.handleChange}
-            >
-                <input type='text' value={this.state.inputValue} placeholder="Enter name of city"/>
+             onChange={this.handleChange}>
+                 <img className='search-icon' src={searchIcon} alt='search icon'/>
+                <input type='text' className='search-input' value={this.state.inputValue} placeholder="Enter city name..."/>
             </form>
-                <ul className="suggestions-container">
+                <ul className="suggestions-container" id='style-1'>
                     { this.state.suggestions.map((suggestion, index) => (
                         <li className="suggestion-element"
                             onClick={this.handleSelect}
@@ -94,7 +91,7 @@ class SearchInput extends Component {
                     }
                 </ul>
                 {this.state.noResults
-                ? 'Sorry, we do not have any results for your query'
+                ? <p className='error-msg'>Sorry, we do not have any results for your query</p>
                 : null }
                 <div class='cards-container'>
                     { this.state.selectedCities.length > 0
