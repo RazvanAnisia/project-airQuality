@@ -1,4 +1,4 @@
-###Compare your Air
+## Compare your Air
 
 This app was created using React.js and the Open AQ Platform API https://docs.openaq.org/ <br>
 It allows you to search for cities in the UK and compare the quality of their air.
