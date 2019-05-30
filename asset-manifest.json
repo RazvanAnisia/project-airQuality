@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/air-quality-app/static/css/main.dfa76564.chunk.css",
-    "main.js": "/air-quality-app/static/js/main.397c7b03.chunk.js",
-    "main.js.map": "/air-quality-app/static/js/main.397c7b03.chunk.js.map",
+    "main.css": "/air-quality-app/static/css/main.b830c0b6.chunk.css",
+    "main.js": "/air-quality-app/static/js/main.b604c6a3.chunk.js",
+    "main.js.map": "/air-quality-app/static/js/main.b604c6a3.chunk.js.map",
     "runtime~main.js": "/air-quality-app/static/js/runtime~main.127a966c.js",
     "runtime~main.js.map": "/air-quality-app/static/js/runtime~main.127a966c.js.map",
     "static/js/2.56fa8655.chunk.js": "/air-quality-app/static/js/2.56fa8655.chunk.js",
     "static/js/2.56fa8655.chunk.js.map": "/air-quality-app/static/js/2.56fa8655.chunk.js.map",
     "index.html": "/air-quality-app/index.html",
-    "precache-manifest.b69f4638002f6869637dae761ccafddd.js": "/air-quality-app/precache-manifest.b69f4638002f6869637dae761ccafddd.js",
+    "precache-manifest.1158bf474c45171b8052df40cf136cec.js": "/air-quality-app/precache-manifest.1158bf474c45171b8052df40cf136cec.js",
     "service-worker.js": "/air-quality-app/service-worker.js",
-    "static/css/main.dfa76564.chunk.css.map": "/air-quality-app/static/css/main.dfa76564.chunk.css.map",
+    "static/css/main.b830c0b6.chunk.css.map": "/air-quality-app/static/css/main.b830c0b6.chunk.css.map",
     "static/media/search-solid.svg": "/air-quality-app/static/media/search-solid.c6a0effb.svg"
   }
 }
