@@ -1,5 +1,6 @@
 import React from "react";
 import Moment from 'react-moment';
+import './InformationCard.css' 
 
 function InformationCard(props) {
     const measurements = props.airQualityInfo.measurements;

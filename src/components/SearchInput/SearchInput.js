@@ -1,7 +1,8 @@
 import React , { Component } from 'react';
-import InformationCard from './InformationCard';
-import { generateID } from '../utilis/helper'
-import searchIcon from '../assets/search-solid.svg'
+import InformationCard from '../InformationCard/InformationCard';
+import { generateID } from '../../utilis/helper'
+import searchIcon from '../../assets/search-solid.svg'
+import './SearchInput.css'
 
 class SearchInput extends Component {
     constructor(props){
@@ -72,6 +73,7 @@ class SearchInput extends Component {
         return(
             <div className='input-container'>
             <form  className='input-form'
+              onFocus={this.handleChange}
               onChange={this.handleChange}>
                 <img className='search-icon' src={searchIcon} alt='search icon'/>
                 <input type='text'
