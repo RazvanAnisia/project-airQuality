@@ -1,70 +1,82 @@
 /*Suggestion Component*/
 .suggestions-container {
-    max-height:150px;
-    overflow-Y:scroll;
-    margin:0 auto;
-    border-radius:10px;
-  }
-  .suggestion-element{
-    padding:5px 0;
-    font-size: 14px;
-    text-align:left;
-    box-sizing: border-box;
-    padding-left:15px;
-    list-style-type: none;
-    margin-left:-40px;
-  }
-  .suggestion-element:hover{
-    background:#eee;
-    cursor: pointer;
+  max-height:150px;
+  overflow-Y:scroll;
+  margin:0 auto;
+  border-radius:10px;
+}
+.suggestion-element{
+  padding:5px 0;
+  font-size: 14px;
+  text-align:left;
+  box-sizing: border-box;
+  padding-left:15px;
+  list-style-type: none;
+  margin-left:-40px;
+}
+.suggestion-element:hover{
+  background:#eee;
+  cursor: pointer;
+}
+.suggestions-container {
+  color:black;
+  background:white;
+  width:282px;
+  padding-top:25px;
+  margin-top:-29px;
+}
+.input-container {
+  max-width:750px;
+  margin:40px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 185px;
+}
+.search-input {
+  width:270px;
+  border-radius:10px;
+  border:1px solid white;
+  
+  padding:9px 10px 8px 40px;
+  font-family:'Open Sans', 'sans-serif';
+  font-size:14px;
+  
+}
+.search-input:focus {
+  border:1.5px solid rgb(209, 208, 208);
+  outline: none;
+}
+.search-input::placeholder {
+  color:black;
+  font-family:'Open Sans', 'sans-serif'
+}
+.search-input:focus::-webkit-input-placeholder {
+  color:transparent;
+}
+.input-form {
+  position: relative;
+}
+.search-icon{
+  width:17px;
+  opacity: 0.2;
+  position: absolute;
+  left:12px;
+  top:12px;
+
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media only screen and (max-width: 420px) {
+  .search-input {
+    width: 220px;
   }
   .suggestions-container {
-    color:black;
-    background:white;
-    width:281px;
-    padding-top:25px;
-    margin-top:-29px;
+    width: 230px;
   }
-  
-  
-  
-  .input-container {
-    max-width:750px;
-    margin:40px auto 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .search-input {
-    width:270px;
-    border-radius:10px;
-    border:1px solid white;
-   
-    padding:9px 10px 8px 40px;
-    font-family:'Open Sans', 'sans-serif';
-    font-size:14px;
-    
-  }
-  .search-input:focus {
-    border:1.5px solid rgb(209, 208, 208);
-    outline: none;
-  }
-  .search-input::placeholder {
-    color:black;
-    font-family:'Open Sans', 'sans-serif'
-  }
-  .search-input:focus::-webkit-input-placeholder {
-    color:transparent;
-  }
-  .input-form {
-    position: relative;
-  }
-  .search-icon{
-    width:17px;
-    opacity: 0.2;
-    position: absolute;
-    left:12px;
-    top:12px;
-  
-  }
-  
+}

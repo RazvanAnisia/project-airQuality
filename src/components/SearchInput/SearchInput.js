@@ -71,34 +71,36 @@ class SearchInput extends Component {
 
     render(){
         return(
-            <div className='input-container'>
-            <form  className='input-form'
-              onFocus={this.handleChange}
-              onChange={this.handleChange}>
-                <img className='search-icon' src={searchIcon} alt='search icon'/>
-                <input type='text'
-                className='search-input'
-                value={this.state.inputValue}
-                placeholder="Enter city name..."/>
-            </form>
-                <ul className="suggestions-container" id='style-1'>
-                    { this.state.showSuggestions
-                    ? this.state.suggestions.map((suggestion, index) => (
-                        <li className="suggestion-element"
-                            onClick={this.handleSelect}
-                            key={index}>
-                            {suggestion.city}
-                        </li>
-                        ))
-                    : null
-                    }
-                </ul>
+            <div className="app-container">
+                <div className='input-container'>
+                    <form  className='input-form'
+                    onChange={this.handleChange}
+                    onFocus={this.handleChange}>
+                        <img className='search-icon' src={searchIcon} alt='search icon'/>
+                        <input type='text'
+                        className='search-input'
+                        defaultValue={this.state.inputValue}
+                        placeholder="Enter city name..."/>
+                        
+                    </form>
+                        <ul className="suggestions-container" id='style-1'>
+                            { this.state.showSuggestions
+                            ? this.state.suggestions.map((suggestion, index) => (
+                                <li className="suggestion-element"
+                                    onClick={this.handleSelect}
+                                    key={index}>
+                                    {suggestion.city}
+                                </li>
+                                ))
+                            : null
+                            }
+                        </ul>
 
-                {this.state.noResults
-                ? <p className='error-msg'>Sorry, we do not have any results for your query</p>
-                : null }
-
-                <div class='cards-container'>
+                        {this.state.noResults
+                        ? <p className='error-msg'>Sorry, we do not have any results for your query</p>
+                        : null }
+                    </div>
+                    <div className='cards-container'>
                     { this.state.selectedCities.length > 0
                     ? this.state.selectedCities.map((city) =>
                     (<InformationCard
@@ -109,9 +111,8 @@ class SearchInput extends Component {
                     )
                     : null
                     }
-                </div>
-
             </div>
+         </div>
         )
     }
 }

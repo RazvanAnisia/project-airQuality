@@ -1,6 +1,5 @@
-
 body{
-  background:linear-gradient(to right, #7A36B1,#3B7EAE) no-repeat;
+  background:linear-gradient(to right, rgb(101, 54, 177),#3B7EAE) no-repeat;
   min-height:100vh;
   height:auto;
   color:white;
@@ -43,23 +42,16 @@ body{
   background-color: transparent;
 }
 
-
 /*Media queries*/
 
 @media only screen and (max-width: 745px) {
-  .cards-container {
-    justify-content: center;
+  body{
+    background:linear-gradient(to right, rgb(79, 49, 163),#3B7EAE) no-repeat;
   }
 }
 
 @media only screen and (max-width: 420px) {
-  .card, .search-input {
-    width: 220px;
-  }
-  .suggestions-container {
-    width: 230px;
-  }
-  .headline {
+ .headline {
     padding:0 10px;
   }
 }

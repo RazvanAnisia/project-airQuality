@@ -1,60 +1,74 @@
 /*Information Card*/
 .card {
-    background:white;
-    color:black;
-    width:275px;
-    border-radius:10px;
-    box-shadow: 0.2px 0.2px 0.6px  rgb(26, 25, 25);
-    padding:20px;
-    text-align: left;
-    position: relative;
-    margin:20px 20px;
-  }
-  .city {
-    color:#7A36B1;
-    font-weight:600;
-    font-size:20px;
-  }
-  .cards-container {
-    display:flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    font-size:0.8rem;
-    margin-top:50px;
-  }
-  .updated-time {
-    text-transform: uppercase;
-    font-weight: 600;
-    font-size:12px;
-  }
-  .cards-container p {
-    margin:5px 0;
-  }
-  .values-text {
-    margin-right:5px;
-  }
+  background:white;
+  color:black;
+  width:275px;
+  border-radius:10px;
+  box-shadow: 0.2px 0.2px 0.6px  rgb(26, 25, 25);
+  padding:20px;
+  text-align: left;
+  position: relative;
+  margin:20px 20px;
+}
+.city {
+  color:#7A36B1;
+  font-weight:600;
+  font-size:20px;
+}
+.cards-container {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size:0.8rem;
+  margin-top:50px;
+  max-width: 750px;
   
-  /*Close btn*/
-  .close {
-    position: absolute;
-    right: 15px;
-    top: 12px;
-    width: 22px;
-    height: 22px;
-    cursor: pointer;
+}
+.updated-time {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size:12px;
+}
+.cards-container p {
+  margin:5px 0;
+}
+.values-text {
+  margin-right:5px;
+}
+
+/*Close btn*/
+.close {
+  position: absolute;
+  right: 15px;
+  top: 12px;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+}
+
+.close:before, .close:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 18px;
+  width: 1.7px;
+  background-color: #333;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
+}
+
+@media only screen and (max-width: 745px) {
+  .app-container  .cards-container {
+    justify-content: center ;
   }
-  
-  .close:before, .close:after {
-    position: absolute;
-    left: 15px;
-    content: ' ';
-    height: 18px;
-    width: 1.7px;
-    background-color: #333;
+}
+
+@media only screen and (max-width: 420px) {
+  .card {
+    width: 220px;
   }
-  .close:before {
-    transform: rotate(45deg);
-  }
-  .close:after {
-    transform: rotate(-45deg);
-  }
+}
