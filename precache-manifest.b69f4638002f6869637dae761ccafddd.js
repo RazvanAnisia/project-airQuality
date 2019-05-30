@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "def46668b6c250fc9df5f665f4133b2b",
+    "revision": "c5fe54cec3db4a0aa7b58737b10a59b2",
     "url": "/air-quality-app/index.html"
   },
   {
-    "revision": "fb1a43186d82cdd0158e",
-    "url": "/air-quality-app/static/css/main.b3b69d41.chunk.css"
+    "revision": "ad2fd629c73da4ad5fd4",
+    "url": "/air-quality-app/static/css/main.dfa76564.chunk.css"
   },
   {
-    "revision": "ffbac6b16721fc77ff5d",
-    "url": "/air-quality-app/static/js/2.c8a69cbd.chunk.js"
+    "revision": "8560664b9ef81001d50e",
+    "url": "/air-quality-app/static/js/2.56fa8655.chunk.js"
   },
   {
-    "revision": "fb1a43186d82cdd0158e",
-    "url": "/air-quality-app/static/js/main.b2908633.chunk.js"
+    "revision": "ad2fd629c73da4ad5fd4",
+    "url": "/air-quality-app/static/js/main.397c7b03.chunk.js"
   },
   {
     "revision": "f2c0e4ee7513addc28ae",
